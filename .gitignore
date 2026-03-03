@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.next/
+*.tsbuildinfo
+
+# Env and secrets (keep .example)
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Logs and cache
+*.log
+.cache/
+npm-debug.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
