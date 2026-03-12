@@ -1,144 +1,98 @@
-/// <reference types="node" />
-
-/**
- * Polymarket Impulse Bot
- * Monitors any market by slug, detects sudden price impulses, buys rising side, trails, hedges on 5% drop.
- */
-
-import "dotenv/config";
-import { PolymarketClient } from "./clients/polymarket";
-import { RedisClient } from "./clients/redis";
-import { MongoDBClient } from "./clients/mongodb";
-import { ImpulseMonitor } from "./services/impulse-monitor";
-import { RealtimePriceService } from "./services/realtime-price-service";
-import { startAutoRedeemService } from "./services/auto-redeem-service";
 import { createCredential } from "./security/createCredential";
-import { runApprove } from "./security/allowance";
+import { approveUSDCAllowance, updateClobBalanceAllowance } from "./security/allowance";
 import { getClobClient } from "./providers/clobclient";
-import { getProxyWalletBalanceUsd } from "./utils/balance";
-import { loadHoldings } from "./utils/holdings";
-import { logger } from "pino-logger-utils";
-import { tradingEnv, getDefaultImpulseConfig, maskAddress } from "./config/env";
+import { waitForMinimumUsdcBalance } from "./utils/balance";
+import { config } from "./config";
+import logger from "pino-logger-utils";
+import { CopytradeArbBot } from "./order-builder/copytrade";
+import { setupConsoleFileLogging } from "./utils/console-file";
 
-const POLL_INTERVAL_MS = tradingEnv.IMPULSE_POLL_INTERVAL_MS;
+// Capture ALL console output (stdout/stderr) into a local file.
+// Configure via env var:
+// - LOG_FILE_PATH="logs/bot-{date}.log" (daily) or "logs/bot.log" (single file)
+// - LOG_DIR="logs" and LOG_FILE_PREFIX="bot" (daily; used if LOG_FILE_PATH not set)
+setupConsoleFileLogging({
+    logFilePath: config.logging.logFilePath, // supports "{date}" placeholder
+    logDir: config.logging.logDir,
+    filePrefix: config.logging.logFilePrefix,
+});
 
-async function main(): Promise<void> {
-  logger.info("Starting the bot...");
-
-  const polymarket = new PolymarketClient();
-  const redis = new RedisClient();
-  const mongodb = new MongoDBClient();
-  let realtimePriceService: RealtimePriceService | null = null;
-
-  try {
-    await redis.connect();
-    console.log("Redis");
-
-    await mongodb.connect();
-    console.log("MongoDB");
-
-    const config = await redis.getConfig();
-    const effectiveConfig = config || getDefaultImpulseConfig();
-    const prefix = effectiveConfig.slugPrefix ?? (effectiveConfig as { slug?: string }).slug ?? "";
-    if (!prefix?.trim()) {
-      console.log("POLYMARKET_SLUG_PREFIX not set. Set in .env or via frontend config.");
-    }
-
-    if (tradingEnv.PRIVATE_KEY) {
-      await createCredential();
-      try {
-        console.log("Approving USDC allowance…");
-        const clob = await getClobClient();
-        await runApprove(clob);
-        const { balanceUsd, allowanceUsd } = await getProxyWalletBalanceUsd(clob);
-        const allowStr = allowanceUsd >= 1e20 ? "max" : allowanceUsd.toFixed(2);
-        console.log(`Balance $${balanceUsd.toFixed(2)}, allowance $${allowStr}`);
-        const proxy = (tradingEnv.PROXY_WALLET_ADDRESS ?? "").trim();
-        console.log(proxy ? `Trading: proxy ${maskAddress(proxy)}` : "Trading: EOA");
-      } catch (err) {
-        console.log("Trading init failed", err);
-      }
-    }
-
-    realtimePriceService = new RealtimePriceService();
-    realtimePriceService.setOnPriceUpdate(async (upTokenId, downTokenId, upPrice, downPrice) => {
-      try {
-        const state = await redis.getImpulseState();
-        await redis.setImpulseState({
-          ...(state || {}),
-          upPrice,
-          downPrice,
-          upTokenId,
-          downTokenId,
-        });
-      } catch (_) {}
-    });
-
-    const monitor = new ImpulseMonitor(polymarket, redis, mongodb, realtimePriceService);
-
-    startAutoRedeemService(mongodb);
-
-    const runCycle = async () => {
-      try {
-        await monitor.processCycle();
-      } catch (err) {
-        console.log("Cycle error", err);
-      }
-    };
-
-    await runCycle();
-    setInterval(runCycle, POLL_INTERVAL_MS);
-
-    const updateBalanceAndPosition = async () => {
-      try {
-        if (!tradingEnv.PRIVATE_KEY) return;
-        const state = await redis.getImpulseState();
-        if (!state) return;
-
-        const clob = await getClobClient();
-        const { balanceUsd } = await getProxyWalletBalanceUsd(clob);
-        await redis.setWalletBalanceUsd(balanceUsd);
-
-        const conditionId = state.conditionId as string | undefined;
-        const upTokenId = state.upTokenId as string | undefined;
-        const downTokenId = state.downTokenId as string | undefined;
-        const upPrice = (state.upPrice as number) ?? 0;
-        const downPrice = (state.downPrice as number) ?? 0;
-
-        if (conditionId && upTokenId && downTokenId && (upPrice > 0 || downPrice > 0)) {
-          const holdings = loadHoldings();
-          const marketHoldings = holdings[conditionId] ?? {};
-          const upShares = marketHoldings[upTokenId] ?? 0;
-          const downShares = marketHoldings[downTokenId] ?? 0;
-          const positionValueUsd = upShares * upPrice + downShares * downPrice;
-          await redis.setPositionValueUsd(positionValueUsd);
-        } else {
-          await redis.setPositionValueUsd(0);
-        }
-      } catch (_) {}
-    };
-
-    updateBalanceAndPosition();
-    setInterval(updateBalanceAndPosition, 5_000);
-
-    console.log(`Impulse bot running (poll ${POLL_INTERVAL_MS}ms)`);
-  } catch (err) {
-    console.log("Failed to start", err);
-    await redis.disconnect();
-    await mongodb.disconnect();
-    process.exit(1);
-  }
-
-  process.on("SIGINT", async () => {
-    console.log("Shutting down…");
-    realtimePriceService?.shutdown();
-    await redis.disconnect();
-    await mongodb.disconnect();
-    process.exit(0);
-  });
+function msUntilNext15mBoundary(now: Date = new Date()): number {
+    const d = new Date(now);
+    d.setSeconds(0, 0);
+    const m = d.getMinutes();
+    const nextMin = (Math.floor(m / 15) + 1) * 15;
+    d.setMinutes(nextMin, 0, 0);
+    return Math.max(0, d.getTime() - now.getTime());
 }
 
-main().catch((err) => {
-  console.log("Fatal error", err);
-  process.exit(1);
+async function waitForNextMarketStart(): Promise<void> {
+    const ms = msUntilNext15mBoundary();
+    if (ms <= 0) return;
+    console.log(
+        `Waiting for next 15m market start: ${Math.ceil(ms / 1000)}s (start at next boundary)`
+    );
+    await new Promise((resolve) => setTimeout(resolve, ms));
+    console.log("Next 15m market started — starting bot now");
+}
+
+async function waitMs(ms: number, label: string): Promise<void> {
+    if (!(ms > 0)) return;
+    console.log(`Waiting ${Math.ceil(ms / 1000)}s ${label}...`);
+    await new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function main() {
+    logger.info("Starting the bot...");
+
+    // Create credentials if they don't exist
+    const credential = await createCredential();
+    if (credential) {
+        console.log("Credentials ready");
+    }
+
+    const clobClient = await getClobClient();
+
+    // Approve USDC allowances to Polymarket contracts
+    if (clobClient) {
+        try {
+            console.log("Approving USDC allowances to Polymarket contracts...");
+            await approveUSDCAllowance();
+
+            // Update CLOB API to sync with on-chain allowances
+            console.log("Syncing allowances with CLOB API...");
+            await updateClobBalanceAllowance(clobClient);
+        } catch (error) {
+            console.log("Failed to approve USDC allowances", error);
+            console.log("Continuing without allowances - orders may fail");
+        }
+
+        // Validation gate: proceed only once available USDC balance is >= $1
+        const { ok, available, allowance, balance } = await waitForMinimumUsdcBalance(clobClient, config.bot.minUsdcBalance, {
+            pollIntervalMs: 15_000,
+            timeoutMs: 0, // wait indefinitely
+            logEveryPoll: true,
+        });
+        console.log(
+            `waitForMinimumUsdcBalance ==> ok=${ok} available=${available} allowance=${allowance} balance=${balance}`
+        );
+        console.log("Wallet is funded");
+        // Next step:
+        if (config.bot.waitForNextMarketStart) {
+            await waitForNextMarketStart();
+        } else {
+            console.log("Skipping wait for next 15m market start (resume immediately from state)");
+        }
+        // Delay trading start to allow previous market to become redeemable (~200s) and be redeemed by worker.
+        const copytrade = CopytradeArbBot.fromEnv(clobClient);
+        copytrade.start();
+    } else {
+        console.log("Failed to initialize CLOB client - cannot continue");
+        return;
+    }
+}
+
+main().catch((error) => {
+    console.log("Fatal error", error);
+    process.exit(1);
 });

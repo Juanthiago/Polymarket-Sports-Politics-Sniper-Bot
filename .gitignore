@@ -1,22 +1,33 @@
 # Dependencies
 node_modules/
+logs
+package-lock.json
 
-# Build
+# Build output
 dist/
-.next/
 *.tsbuildinfo
 
-# Env and secrets (keep .example)
+# Environment variables
 .env
 .env.local
 .env.*.local
-*.pem
 
-# Logs and cache
+# Data files (contain sensitive information)
+src/data/
+*.json
+!package.json
+!tsconfig.json
+
+# Logs
+logs/
 *.log
-.cache/
-npm-debug.log*
-.pnpm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
