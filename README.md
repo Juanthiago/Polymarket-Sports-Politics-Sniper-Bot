@@ -2,25 +2,19 @@
 
 Node.js / TypeScript trading automation for Polymarket crypto binary markets. The bot implements a hedged arbitrage approach: it buys both YES and NO when pricing allows, aiming to keep combined cost below parity while limiting directional exposure.
 
-## Table of contents
-
-- [Overview](#overview)
-- [Media](#media)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Technical details](#technical-details)
-- [Project structure](#project-structure)
-- [API integration](#api-integration)
-- [Monitoring and logging](#monitoring-and-logging)
-- [Change history](#change-history)
-- [Risk considerations](#risk-considerations)
-- [Development](#development)
-
 ## Overview
 
 The bot watches Polymarket short-horizon crypto markets (for example BTC/ETH/SOL “Up/Down” intervals), opens hedged legs according to configurable thresholds, persists state across restarts, and can work alongside separate redemption utilities for resolved positions.
+
+---
+
+![Arbitrage demo still](public/arbitrage.png)
+
+---
+
+https://github.com/user-attachments/assets/3e232356-f15a-42d6-969c-5a98aa922990
+
+---
 
 ### Key features
 
@@ -31,23 +25,6 @@ The bot watches Polymarket short-horizon crypto markets (for example BTC/ETH/SOL
 - **Redemption helpers**: Scripts for automatic or manual redemption flows.
 - **Risk controls**: Sum-average guard, drawdown and balance checks.
 - **Execution-oriented defaults**: Optional async posting, adaptive polling, debounced state writes.
-
-## Media
-
-Demo assets live in [`public/`](public/):
-
-| File | Description |
-|------|---------------|
-| [`public/arbitrage.png`](public/arbitrage.png) | Still image / diagram for the strategy or UI |
-| [`public/arbitrage.mp4`](public/arbitrage.mp4) | Short screen recording or walkthrough |
-
-![Arbitrage demo still](public/arbitrage.png)
-
-<video src="public/arbitrage.mp4" controls muted playsinline width="100%">
-  <a href="public/arbitrage.mp4">Download the demo video (MP4)</a>.
-</video>
-
-If the video does not render in your viewer, open the MP4 link directly from the table above.
 
 ## Architecture
 
