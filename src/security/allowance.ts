@@ -7,11 +7,13 @@ import { Contract } from "@ethersproject/contracts";
 import { Chain, AssetType, ClobClient } from "@polymarket/clob-client";
 import { getContractConfig } from "@polymarket/clob-client";
 import { config } from "../config";
+import { resolveClobOrderAuth } from "../providers/clobOrderAuth";
 
 // Minimal USDC ERC20 ABI
 const USDC_ABI = [
     "function approve(address spender, uint256 amount) external returns (bool)",
     "function allowance(address owner, address spender) external view returns (uint256)",
+    "function balanceOf(address account) external view returns (uint256)",
 ];
 
 // Minimal ERC1155 ABI for ConditionalTokens
@@ -68,7 +70,10 @@ async function getWorkingProvider(chainId: number): Promise<{ provider: JsonRpcP
     const candidates = getRpcUrlCandidates(chainId);
     const errors: string[] = [];
     for (const rpcUrl of candidates) {
-        const provider = new JsonRpcProvider(rpcUrl);
+        const provider = new JsonRpcProvider(rpcUrl, {
+            chainId,
+            name: chainId === 80002 ? "amoy" : "polygon",
+        });
         try {
             await providerWithTimeout(provider, 7000);
             return { provider, rpcUrl };
@@ -91,19 +96,41 @@ export async function approveUSDCAllowance(): Promise<void> {
 
     const chainId = (config.chainId || Chain.POLYGON) as Chain;
     const contractConfig = getContractConfig(chainId);
-    
-    // Get RPC URL and create provider
+
     const { provider, rpcUrl } = await getWorkingProvider(chainId);
     const wallet = new Wallet(privateKey, provider);
-    
-    const address = await wallet.getAddress();
-    console.log(`[INFO] Approving USDC allowances for address: ${address}, chainId: ${chainId}`);
+    const orderAuth = await resolveClobOrderAuth(wallet);
+    const eoa = await wallet.getAddress();
+    const collateralOwner = orderAuth.funderAddress ?? eoa;
+
+    const code = await provider.getCode(collateralOwner);
+    const ownerIsContract = !!(code && code !== "0x");
+
+    console.log(`[INFO] EOA signer: ${eoa}`);
+    console.log(`[INFO] Collateral owner (USDC / approvals): ${collateralOwner}, chainId: ${chainId}`);
     console.log(`[INFO] RPC: ${rpcUrl}`);
     console.log(`[INFO] USDC Contract: ${contractConfig.collateral}`);
     console.log(`[INFO] ConditionalTokens Contract: ${contractConfig.conditionalTokens}`);
     console.log(`[INFO] Exchange Contract: ${contractConfig.exchange}`);
 
-    // Create USDC contract instance
+    const usdcRead = new Contract(contractConfig.collateral, USDC_ABI, provider);
+    try {
+        const rawBal = await usdcRead.balanceOf(collateralOwner);
+        console.log(`[INFO] On-chain USDC balance (${collateralOwner}): ${rawBal.toString()} (raw, 6 decimals)`);
+    } catch (e) {
+        console.log(`[WARNING] Could not read USDC balance: ${e instanceof Error ? e.message : String(e)}`);
+    }
+
+    if (ownerIsContract) {
+        console.log(
+            `[INFO] Collateral owner is a contract (Polymarket proxy). Skipping approve()/setApprovalForAll — ` +
+                `these must be executed as the proxy (use https://polymarket.com "Enable trading" / approvals first).`
+        );
+        console.log(`[SUCCESS] On-chain EOA approvals skipped (proxy mode). CLOB sync can still run.`);
+        return;
+    }
+
+    // Create USDC contract instance (EOA is collateral owner)
     const usdcContract = new Contract(contractConfig.collateral, USDC_ABI, wallet);
 
     // Configure gas options
@@ -123,7 +150,7 @@ export async function approveUSDCAllowance(): Promise<void> {
     }
 
     // Check and approve USDC for ConditionalTokens contract
-    const ctfAllowance = await usdcContract.allowance(address, contractConfig.conditionalTokens);
+    const ctfAllowance = await usdcContract.allowance(collateralOwner, contractConfig.conditionalTokens);
     if (!ctfAllowance.eq(MaxUint256)) {
         console.log(`[INFO] Current CTF allowance: ${ctfAllowance.toString()}, setting to MaxUint256...`);
         const tx = await usdcContract.approve(contractConfig.conditionalTokens, MaxUint256, gasOptions);
@@ -135,7 +162,7 @@ export async function approveUSDCAllowance(): Promise<void> {
     }
 
     // Check and approve USDC for Exchange contract
-    const exchangeAllowance = await usdcContract.allowance(address, contractConfig.exchange);
+    const exchangeAllowance = await usdcContract.allowance(collateralOwner, contractConfig.exchange);
     if (!exchangeAllowance.eq(MaxUint256)) {
         console.log(`[INFO] Current Exchange allowance: ${exchangeAllowance.toString()}, setting to MaxUint256...`);
         const tx = await usdcContract.approve(contractConfig.exchange, MaxUint256, gasOptions);
@@ -148,7 +175,7 @@ export async function approveUSDCAllowance(): Promise<void> {
 
     // Check and approve ConditionalTokens (ERC1155) for Exchange contract
     const ctfContract = new Contract(contractConfig.conditionalTokens, CTF_ABI, wallet);
-    const isApproved = await ctfContract.isApprovedForAll(address, contractConfig.exchange);
+    const isApproved = await ctfContract.isApprovedForAll(collateralOwner, contractConfig.exchange);
     
     if (!isApproved) {
         console.log(`[INFO] Approving ConditionalTokens for Exchange contract...`);
@@ -164,7 +191,7 @@ export async function approveUSDCAllowance(): Promise<void> {
     const negRisk = config.negRisk;
     if (negRisk) {
         // Approve USDC for NegRiskAdapter
-        const negRiskAdapterAllowance = await usdcContract.allowance(address, contractConfig.negRiskAdapter);
+        const negRiskAdapterAllowance = await usdcContract.allowance(collateralOwner, contractConfig.negRiskAdapter);
         if (!negRiskAdapterAllowance.eq(MaxUint256)) {
             console.log(`[INFO] Current NegRiskAdapter allowance: ${negRiskAdapterAllowance.toString()}, setting to MaxUint256...`);
             const tx = await usdcContract.approve(contractConfig.negRiskAdapter, MaxUint256, gasOptions);
@@ -174,7 +201,7 @@ export async function approveUSDCAllowance(): Promise<void> {
         }
 
         // Approve USDC for NegRiskExchange
-        const negRiskExchangeAllowance = await usdcContract.allowance(address, contractConfig.negRiskExchange);
+        const negRiskExchangeAllowance = await usdcContract.allowance(collateralOwner, contractConfig.negRiskExchange);
         if (!negRiskExchangeAllowance.eq(MaxUint256)) {
             console.log(`[INFO] Current NegRiskExchange allowance: ${negRiskExchangeAllowance.toString()}, setting to MaxUint256...`);
             const tx = await usdcContract.approve(contractConfig.negRiskExchange, MaxUint256, gasOptions);
@@ -184,7 +211,7 @@ export async function approveUSDCAllowance(): Promise<void> {
         }
 
         // Approve ConditionalTokens for NegRiskExchange
-        const isNegRiskApproved = await ctfContract.isApprovedForAll(address, contractConfig.negRiskExchange);
+        const isNegRiskApproved = await ctfContract.isApprovedForAll(collateralOwner, contractConfig.negRiskExchange);
         if (!isNegRiskApproved) {
             console.log(`[INFO] Approving ConditionalTokens for NegRiskExchange...`);
             const tx = await ctfContract.setApprovalForAll(contractConfig.negRiskExchange, true, gasOptions);
@@ -194,7 +221,7 @@ export async function approveUSDCAllowance(): Promise<void> {
         }
 
         // Approve ConditionalTokens for NegRiskAdapter
-        const isNegRiskAdapterApproved = await ctfContract.isApprovedForAll(address, contractConfig.negRiskAdapter);
+        const isNegRiskAdapterApproved = await ctfContract.isApprovedForAll(collateralOwner, contractConfig.negRiskAdapter);
         if (!isNegRiskAdapterApproved) {
             console.log(`[INFO] Approving ConditionalTokens for NegRiskAdapter...`);
             const tx = await ctfContract.setApprovalForAll(contractConfig.negRiskAdapter, true, gasOptions);
@@ -232,13 +259,23 @@ export async function approveTokensAfterBuy(): Promise<void> {
 
     const chainId = (config.chainId || Chain.POLYGON) as Chain;
     const contractConfig = getContractConfig(chainId);
-    
-    // Get RPC URL and create provider
+
     const { provider, rpcUrl } = await getWorkingProvider(chainId);
     const wallet = new Wallet(privateKey, provider);
-    
-    const address = await wallet.getAddress();
+    const orderAuth = await resolveClobOrderAuth(wallet);
+    const collateralOwner = orderAuth.funderAddress ?? (await wallet.getAddress());
+
+    const code = await provider.getCode(collateralOwner);
+    const ownerIsContract = !!(code && code !== "0x");
+
     console.log(`[INFO] RPC: ${rpcUrl}`);
+    if (ownerIsContract) {
+        console.log(
+            `[INFO] Skipping post-buy setApprovalForAll (collateral owner ${collateralOwner} is a proxy contract; EOA cannot set it).`
+        );
+        return;
+    }
+
     const ctfContract = new Contract(contractConfig.conditionalTokens, CTF_ABI, wallet);
 
     // Configure gas options
@@ -257,8 +294,8 @@ export async function approveTokensAfterBuy(): Promise<void> {
     }
 
     // Check if ConditionalTokens are approved for Exchange
-    const isApproved = await ctfContract.isApprovedForAll(address, contractConfig.exchange);
-    
+    const isApproved = await ctfContract.isApprovedForAll(collateralOwner, contractConfig.exchange);
+
     if (!isApproved) {
         console.log(`[INFO] Approving ConditionalTokens for Exchange (after buy)...`);
         const tx = await ctfContract.setApprovalForAll(contractConfig.exchange, true, gasOptions);
@@ -270,7 +307,7 @@ export async function approveTokensAfterBuy(): Promise<void> {
     // If negRisk is enabled, also check negRisk contracts
     const negRisk = config.negRisk;
     if (negRisk) {
-        const isNegRiskApproved = await ctfContract.isApprovedForAll(address, contractConfig.negRiskExchange);
+        const isNegRiskApproved = await ctfContract.isApprovedForAll(collateralOwner, contractConfig.negRiskExchange);
         if (!isNegRiskApproved) {
             console.log(`[INFO] Approving ConditionalTokens for NegRiskExchange (after buy)...`);
             const tx = await ctfContract.setApprovalForAll(contractConfig.negRiskExchange, true, gasOptions);

@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-logs
 package-lock.json
 
 # Build output
@@ -17,10 +16,6 @@ src/data/
 *.json
 !package.json
 !tsconfig.json
-
-# Logs
-logs/
-*.log
 
 # IDE
 .vscode/

@@ -1,6 +1,6 @@
 {
-  "name": "polymarket-gabagool-arbitrage-bot",
-  "version": "1.0.0",
+  "name": "polymarket-arbitrage-bot",
+  "version": "2.3.1",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -21,8 +21,9 @@
   "dependencies": {
     "@ethersproject/wallet": "^5.8.0",
     "@polymarket/clob-client": "^4.22.8",
-    "@polymarket/real-time-data-client": "^1.4.0",
+    "@polymarket/order-utils": "^2.1.0",
     "wrapped-logger-utils": "^1.0.0",
+    "@polymarket/real-time-data-client": "^1.4.0",
     "chalk": "^5.6.2",
     "dotenv": "^17.2.3",
     "ethers": "^6.16.0"

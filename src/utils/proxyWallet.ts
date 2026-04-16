@@ -40,7 +40,10 @@ export async function getPolymarketProxyWalletAddress(
 ): Promise<string> {
     const chainIdValue = chainId || ((config.chainId || Chain.POLYGON) as Chain);
     const rpcUrl = getRpcUrl(chainIdValue);
-    const provider = new JsonRpcProvider(rpcUrl);
+    const provider = new JsonRpcProvider(rpcUrl, {
+        chainId: chainIdValue,
+        name: chainIdValue === 80002 ? "amoy" : "polygon",
+    });
     const contractConfig = getContractConfig(chainIdValue);
 
     const exchange = new Contract(contractConfig.exchange, EXCHANGE_ABI, provider);

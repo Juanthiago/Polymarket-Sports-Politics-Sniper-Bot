@@ -38,6 +38,9 @@ function requireEnv(name: string): string {
     return v;
 }
 
+const _funderEnvA = envString("FUNDER_ADDRESS");
+const _funderEnvB = envString("POLY_PROXY_WALLET");
+
 export const config = {
     /** Enable verbose logs */
     debug: envBool("DEBUG", false),
@@ -51,6 +54,21 @@ export const config = {
     /** Wallet private key (required for most scripts). Use config.requirePrivateKey() when needed. */
     privateKey: envString("PRIVATE_KEY"),
     requirePrivateKey: () => requireEnv("PRIVATE_KEY"),
+
+    /**
+     * Polymarket uses an EOA signer + proxy (funder) where collateral lives.
+     * When true (default), CLOB uses a proxy signature type + funder (see Polymarket docs).
+     */
+    usePolyProxy: envBool("USE_POLY_PROXY", true),
+
+    /** Proxy / funder from polymarket.com/settings (recommended). Else resolved on-chain for Magic-link proxies only. */
+    funderAddress: _funderEnvA ?? _funderEnvB,
+
+    /** True if FUNDER_ADDRESS or POLY_PROXY_WALLET was set in the environment. */
+    funderWasExplicitInEnv: !!(_funderEnvA || _funderEnvB),
+
+    /** Override: EOA | POLY_PROXY | POLY_GNOSIS_SAFE | GNOSIS_SAFE (case-insensitive). */
+    signatureType: envString("SIGNATURE_TYPE"),
 
     /** RPC configuration (used for on-chain calls like allowance/balance/redeem). */
     rpcUrl: envString("RPC_URL"),

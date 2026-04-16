@@ -3,6 +3,7 @@ import { writeFileSync, existsSync, readFileSync, mkdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { Wallet } from "@ethersproject/wallet";
 import { config } from "../config";
+import { resolveClobOrderAuth } from "../providers/clobOrderAuth";
 
 export async function createCredential(): Promise<ApiKeyCreds | null> {
     const privateKey = config.privateKey;
@@ -17,11 +18,19 @@ export async function createCredential(): Promise<ApiKeyCreds | null> {
 
     try {
         const wallet = new Wallet(privateKey);
-        console.log(`[INFO] wallet address ${wallet.address}`);
+        const orderAuth = await resolveClobOrderAuth(wallet);
+        console.log(`[INFO] EOA signer address: ${wallet.address}`);
+        if (orderAuth.funderAddress) {
+            console.log(
+                `[INFO] Polymarket funder (collateral wallet): ${orderAuth.funderAddress} (CLOB signatureType=${orderAuth.signatureType ?? "n/a"})`
+            );
+        } else {
+            console.log(`[INFO] CLOB mode: EOA (no proxy funder)`);
+        }
         const chainId = (config.chainId || Chain.POLYGON) as Chain;
         const host = config.clobApiUrl;
-        
-        // Create temporary ClobClient just for credential creation
+
+        // L1 API keys are tied to the signer only — use the plain client (Polymarket docs).
         const clobClient = new ClobClient(host, chainId, wallet);
         const credential = await clobClient.createOrDeriveApiKey();
         
