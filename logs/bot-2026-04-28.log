@@ -1,0 +1,785 @@
+
+
+
+
+
+===== LOG START 2026-04-28T15:27:24.082Z pid=12068 =====
+
+
+
+
+[2026-04-28T15:27:24.082Z] ℹ️ INFO  Starting the bot...
+[INFO] EOA signer address: 0x1345abB460815E0C9F100Ab4652CD0f252b9e604
+[INFO] Polymarket funder (collateral wallet): 0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34 (CLOB signatureType=2)
+[CLOB Client] request error {"status":400,"statusText":"Bad Request","data":{"error":"Could not create api key"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false,"legacyInterceptorReqResOrdering":true},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"*/*","Content-Type":"application/json","POLY_ADDRESS":"0x1345abB460815E0C9F100Ab4652CD0f252b9e604","POLY_SIGNATURE":"0x0a2758c844559bb9ced468d117c596a65fe8a80039c93d600b2d7eacfe6903024ee26d0aad4407d4edd95607b92a718e29f5c89b60410c07c03d96772d6566451b","POLY_TIMESTAMP":"1777390044","POLY_NONCE":"0","User-Agent":"@polymarket/clob-client","Connection":"keep-alive","Accept-Encoding":"gzip, compress, deflate, br"},"method":"post","url":"https://clob.polymarket.com/auth/api-key","allowAbsoluteUrls":true}}
+[SUCCESS] Credential created successfully
+Credentials ready
+Approving USDC allowances to Polymarket contracts...
+[INFO] EOA signer: 0x1345abB460815E0C9F100Ab4652CD0f252b9e604
+[INFO] Collateral owner (USDC / approvals): 0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34, chainId: 137
+[INFO] RPC: https://rpc-mainnet.matic.quiknode.pro
+[INFO] USDC Contract: 0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB
+[INFO] ConditionalTokens Contract: 0x4D97DCd97eC945f40cF65F87097ACe5EA0476045
+[INFO] Exchange Contract: 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+[INFO] On-chain USDC balance (0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34): 11048995 (raw, 6 decimals)
+[INFO] Collateral owner is a contract (Polymarket proxy). Skipping approve()/setApprovalForAll — these must be executed as the proxy (use https://polymarket.com "Enable trading" / approvals first).
+[SUCCESS] On-chain EOA approvals skipped (proxy mode). CLOB sync can still run.
+Syncing allowances with CLOB API...
+[INFO] Updating CLOB API balance allowance for USDC...
+[SUCCESS] ✅ CLOB API balance allowance updated for USDC
+[DEBUG] Balance check: Total=11048995, Reserved=0, Available=11048995
+[INFO] ═══════════════════════════════════════
+[INFO] 💰 WALLET BALANCE & ALLOWANCE
+[INFO] ═══════════════════════════════════════
+[INFO] USDC Balance: 11.048995
+[INFO] USDC Allowance: 0.000000
+[INFO] Available: 11.048995 (Balance: 11.048995, Allowance: 0.000000)
+[INFO] ═══════════════════════════════════════
+[INFO] USDC gate: available=11.048995 (balance=11.048995, allowance=0.000000), required>=1
+[SUCCESS] USDC gate passed: available=11.048995 >= 1
+waitForMinimumUsdcBalance ==> ok=true available=11.048995 allowance=0 balance=11.048995
+Wallet is funded
+Skipping wait for next 15m market start (resume immediately from state)
+[INFO] Market cycle initialized: market=btc slug=btc-updown-15m-1777389300
+[INFO] CopytradeArbBot started markets=btc pollMs=200 (adaptive)
+[DEBUG] Balance check: Total=11048995, Reserved=0, Available=11048995
+[INFO] 💰 Initial balance: $11.05
+[INFO] 🎯 New hedge entry (flexible): NO below threshold, starting with NO price=0.4750
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4750 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4850 temp=0.4750 depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4850? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+
+===== LOG END 2026-04-28T15:27:27.778Z pid=12068 =====
+
+
+
+
+
+===== LOG START 2026-04-28T15:28:09.921Z pid=20244 =====
+
+
+
+
+[2026-04-28T15:28:09.921Z] ℹ️ INFO  Starting the bot...
+[INFO] EOA signer address: 0x1345abB460815E0C9F100Ab4652CD0f252b9e604
+[INFO] Polymarket funder (collateral wallet): 0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34 (CLOB signatureType=2)
+[CLOB Client] request error {"status":400,"statusText":"Bad Request","data":{"error":"Could not create api key"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false,"legacyInterceptorReqResOrdering":true},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"*/*","Content-Type":"application/json","POLY_ADDRESS":"0x1345abB460815E0C9F100Ab4652CD0f252b9e604","POLY_SIGNATURE":"0xd45e585e0bb8d949061f18ca3de05bee1e6e40bf5fd3645654e9df4a8d1f3c463f76d4b1088d4394760b7f7a4d6625fd2c83eb79b539f60611f5d0d23b6d12c31b","POLY_TIMESTAMP":"1777390089","POLY_NONCE":"0","User-Agent":"@polymarket/clob-client","Connection":"keep-alive","Accept-Encoding":"gzip, compress, deflate, br"},"method":"post","url":"https://clob.polymarket.com/auth/api-key","allowAbsoluteUrls":true}}
+[SUCCESS] Credential created successfully
+Credentials ready
+Approving USDC allowances to Polymarket contracts...
+[INFO] EOA signer: 0x1345abB460815E0C9F100Ab4652CD0f252b9e604
+[INFO] Collateral owner (USDC / approvals): 0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34, chainId: 137
+[INFO] RPC: https://rpc-mainnet.matic.quiknode.pro
+[INFO] USDC Contract: 0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB
+[INFO] ConditionalTokens Contract: 0x4D97DCd97eC945f40cF65F87097ACe5EA0476045
+[INFO] Exchange Contract: 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+[INFO] On-chain USDC balance (0xC7ad2D6559946D059DE834cB18D0720fF2ec6c34): 11048995 (raw, 6 decimals)
+[INFO] Collateral owner is a contract (Polymarket proxy). Skipping approve()/setApprovalForAll — these must be executed as the proxy (use https://polymarket.com "Enable trading" / approvals first).
+[SUCCESS] On-chain EOA approvals skipped (proxy mode). CLOB sync can still run.
+Syncing allowances with CLOB API...
+[INFO] Updating CLOB API balance allowance for USDC...
+[SUCCESS] ✅ CLOB API balance allowance updated for USDC
+[DEBUG] Balance check: Total=11048995, Reserved=0, Available=11048995
+[INFO] ═══════════════════════════════════════
+[INFO] 💰 WALLET BALANCE & ALLOWANCE
+[INFO] ═══════════════════════════════════════
+[INFO] USDC Balance: 11.048995
+[INFO] USDC Allowance: 0.000000
+[INFO] Available: 11.048995 (Balance: 11.048995, Allowance: 0.000000)
+[INFO] ═══════════════════════════════════════
+[INFO] USDC gate: available=11.048995 (balance=11.048995, allowance=0.000000), required>=1
+[SUCCESS] USDC gate passed: available=11.048995 >= 1
+waitForMinimumUsdcBalance ==> ok=true available=11.048995 allowance=0 balance=11.048995
+Wallet is funded
+Skipping wait for next 15m market start (resume immediately from state)
+[INFO] Market cycle initialized: market=btc slug=btc-updown-15m-1777389300
+[INFO] CopytradeArbBot started markets=btc pollMs=200 (adaptive)
+[DEBUG] Balance check: Total=11048995, Reserved=0, Available=11048995
+[INFO] 💰 Initial balance: $11.05
+[INFO] 🎯 New hedge entry (flexible): YES below threshold, starting with YES price=0.4350
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4050 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4050? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4150 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4150? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4150 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4150? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4150 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4150? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4250 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4250? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking YES: price=0.4450 temp=0.4050 depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4450? YES ✅ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[SUCCESS] ⚡ BUY TRIGGER (Reversal): YES @ 0.4450 (reversed from 0.4050, movement=+0.0400, threshold=0.4250) attempt_count=1/4
+[INFO] ⚡ Copytrade BUY market=btc slug=btc-updown-15m-1777389300 leg=YES size=5 conditionId=0x14243b50a203085682c592ac2299ba62960765f1da4fa16ca8a2ed41e2a7570a (limit=0.47000000000000003, mid=0.445) type=GTC (aggressive pricing for speed)
+[INFO] ⚡ Order placed in 441ms
+[SUCCESS] ⚡ Order 0x131b9da75ea14914ca... placed and tracking async (total: 442ms) - continuing immediately
+[SUCCESS] 🎯 FIRST BUY: YES @ 0.4700 | Hedge started
+[INFO] 🔄 Switched tracking: YES → NO
+[SUCCESS] 🎯 DYNAMIC THRESHOLD: 0.5700 | Will buy NO when <= 0.5600
+[INFO] Added 5 tokens to holdings: 0x14243b50a203085682c592ac2299ba62960765f1da4fa16ca8a2ed41e2a7570a -> 108045081961956435429967565651308984888673671433017488258815499269495408127528
+[SUCCESS] ✅ Async order MATCHED: 0x131b9da75ea14914ca... leg=YES filled=5 spent=2.350000 sumAvg=0.4700
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.5950 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.5950? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.5700 [SECOND SIDE] threshold=0.5700 time=0ms/200ms depth_buy=0.5415 (5.0% discount) reversal_check=0.5700+0.020=0.5900 < 0.6150? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.6150 (reversed from 0.5700, movement=+0.0450, threshold=0.5900) attempt_count=1/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777389300 skipping NO buy at 0.6400 - would make sumAvg 1.1100 > 0.98 (unprofitable). Current: avgYES=0.4700 avgNO=0.0000
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=104ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=226ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=327ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=432ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=551ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=657ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=759ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=867ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=983ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=1085ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=1196ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=1307ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=1457ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=1524ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6150? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6550? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6150 [SECOND SIDE] threshold=0.6150 time=0ms/200ms depth_buy=0.5842 (5.0% discount) reversal_check=0.6150+0.020=0.6350 < 0.6650? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.6650 (reversed from 0.6150, movement=+0.0500, threshold=0.6350) attempt_count=2/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777389300 skipping NO buy at 0.6900 - would make sumAvg 1.1600 > 0.98 (unprofitable). Current: avgYES=0.4700 avgNO=0.0000
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=98ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=206ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=313ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=428ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7100 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7100? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7250? YES ✅ max_acceptable=0.5100 (sumAvg=0.4700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.7250 (reversed from 0.6850, movement=+0.0400, threshold=0.7050) attempt_count=3/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777389300 skipping NO buy at 0.7500 - would make sumAvg 1.2200 > 0.98 (unprofitable). Current: avgYES=0.4700 avgNO=0.0000
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=95ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7350 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7350? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=0ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=98ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=205ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=316ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=425ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=532ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=645ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=758ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=868ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=985ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1097ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1189ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1311ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1414ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1522ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1630ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1753ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.7250 temp=0.7250 [SECOND SIDE] threshold=0.7250 time=1853ms/200ms depth_buy=0.6887 (5.0% discount) reversal_check=0.7250+0.020=0.7450 < 0.7250? NO ❌ max_acceptable=0.5100 (sumAvg=0.4700) ❌ ⏱️TIME-BASED BUY
+[SUCCESS] 🎯 SECOND BUY (Time-based): NO @ 0.7250 | Price <= threshold 0.7250 for 1853ms (>= 200ms) attempt_count=4/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777389300 skipping NO buy at 0.7500 - would make sumAvg 1.2200 > 0.98 (unprofitable). Current: avgYES=0.4700 avgNO=0.0000
+[INFO] ⏱️ Execution timing: buy=0ms total=0ms success=false
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2650
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2850
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2850
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.3350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2150
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.2050
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.4350
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.4250
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.4250
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.4050
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.6550
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9250
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9750
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9850
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9850
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9850
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9950
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 🔄 NO side reached max attempts (4/4), switching to YES @ 0.9950
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[INFO] 
+
+==================================================
+
+[INFO] 🔄 New 15m market cycle: market=btc slug=btc-updown-15m-1777390200
+[INFO] 🎯 New hedge entry (flexible): NO below threshold, starting with NO price=0.4850
+[DEBUG] Tracking NO: price=0.4850 temp=0.4850 depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4850 temp=0.4850 depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.4850 temp=0.4850 depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.5050 temp=0.4850 depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.5050? NO ❌ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[DEBUG] Tracking NO: price=0.5150 temp=0.4850 depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.5150? YES ✅ max_acceptable=0.9800 (sumAvg=0.0000) ✅
+[SUCCESS] ⚡ BUY TRIGGER (Reversal): NO @ 0.5150 (reversed from 0.4850, movement=+0.0300, threshold=0.5050) attempt_count=1/4
+[INFO] ⚡ Copytrade BUY market=btc slug=btc-updown-15m-1777390200 leg=NO size=5 conditionId=0x95cc9ab72083433822b51923c59ac31e46f75c4b116e4a292ce7a0784ab4a5d9 (limit=0.54, mid=0.515) type=GTC (aggressive pricing for speed)
+[INFO] ⚡ Order placed in 375ms
+[SUCCESS] ⚡ Order 0x98690958c5c961a3bc... placed and tracking async (total: 375ms) - continuing immediately
+[SUCCESS] 🎯 FIRST BUY: NO @ 0.5400 | Hedge started
+[INFO] 🔄 Switched tracking: NO → YES
+[SUCCESS] 🎯 DYNAMIC THRESHOLD: 0.5000 | Will buy YES when <= 0.4900
+[INFO] Added 5 tokens to holdings: 0x95cc9ab72083433822b51923c59ac31e46f75c4b116e4a292ce7a0784ab4a5d9 -> 86410570209274863972245901405114679440331868369612041248417676320190172543832
+[SUCCESS] ✅ Async order MATCHED: 0x98690958c5c961a3bc... leg=NO filled=5 spent=2.700000 sumAvg=0.5400
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=0ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=109ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=224ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=325ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=436ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=543ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=653ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=762ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=871ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=980ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1099ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1201ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1316ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1419ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1531ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1638ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1747ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1877ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1967ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2077ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2185ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2290ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2406ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2515ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2624ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2737ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2841ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2950ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY
+[SUCCESS] 🎯 SECOND BUY (Time-based): YES @ 0.4850 | Price <= threshold 0.4850 for 2950ms (>= 200ms) attempt_count=1/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping YES buy at 0.5100 - would make sumAvg 1.0500 > 0.98 (unprofitable). Current: avgYES=0.0000 avgNO=0.5400
+[INFO] ⏱️ Execution timing: buy=0ms total=0ms success=false
+[WARNING] ⚠️ Safety check: Last buy was NO, enforcing alternation - switching to YES
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=0ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=105ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=219ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=327ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=437ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=544ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=656ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=761ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=871ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=981ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1089ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1200ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1309ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1419ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1525ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1643ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1752ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1861ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=1970ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2087ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2186ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2294ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2402ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2513ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2620ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2734ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2848ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=2958ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=3061ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=3172ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=3280ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4850 temp=0.4850 [SECOND SIDE] threshold=0.4850 time=3389ms/200ms depth_buy=0.4607 (5.0% discount) reversal_check=0.4850+0.020=0.5050 < 0.4850? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4750 temp=0.4750 [SECOND SIDE] threshold=0.4750 time=3591ms/200ms depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4750 temp=0.4750 [SECOND SIDE] threshold=0.4750 time=3702ms/200ms depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4750 temp=0.4750 [SECOND SIDE] threshold=0.4750 time=3811ms/200ms depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4750 temp=0.4750 [SECOND SIDE] threshold=0.4750 time=3921ms/200ms depth_buy=0.4512 (5.0% discount) reversal_check=0.4750+0.020=0.4950 < 0.4750? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4249ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4356ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4470ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4579ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4683ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=4791ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ ⏱️TIME-BASED BUY
+[SUCCESS] 🎯 SECOND BUY (Time-based): YES @ 0.4550 | Price <= threshold 0.4550 for 4791ms (>= 200ms) attempt_count=2/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping YES buy at 0.4800 - would make sumAvg 1.0200 > 0.98 (unprofitable). Current: avgYES=0.0000 avgNO=0.5400
+[INFO] ⏱️ Execution timing: buy=0ms total=0ms success=false
+[WARNING] ⚠️ Safety check: Last buy was NO, enforcing alternation - switching to YES
+[DEBUG] Tracking YES: price=0.4550 temp=0.4550 [SECOND SIDE] threshold=0.4550 time=0ms/200ms depth_buy=0.4322 (5.0% discount) reversal_check=0.4550+0.020=0.4750 < 0.4550? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ❌ (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=322ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=440ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=551ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=660ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=761ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=878ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=986ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1102ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1204ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1310ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1420ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1539ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1649ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1749ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1868ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4350 temp=0.4350 [SECOND SIDE] threshold=0.4350 time=1978ms/200ms depth_buy=0.4133 (5.0% discount) reversal_check=0.4350+0.020=0.4550 < 0.4350? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2207ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2305ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2412ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2518ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2624ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2734ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2854ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2959ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3074ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3176ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3281ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3395ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3501ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3627ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3760ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3842ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3935ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4049ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4160ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4262ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4377ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4496ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4591ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4702ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=4811ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY
+[SUCCESS] 🎯 SECOND BUY (Time-based): YES @ 0.4250 | Price <= threshold 0.4250 for 4811ms (>= 200ms) attempt_count=3/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping YES buy at 0.4500 - would make sumAvg 0.9900 > 0.98 (unprofitable). Current: avgYES=0.0000 avgNO=0.5400
+[INFO] ⏱️ Execution timing: buy=0ms total=0ms success=false
+[WARNING] ⚠️ Safety check: Last buy was NO, enforcing alternation - switching to YES
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=0ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=107ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=224ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=328ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=433ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=546ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=652ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=763ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=873ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=981ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1095ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1200ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1311ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1416ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1528ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1640ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1748ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1864ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=1964ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2069ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2171ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2283ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2389ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2497ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2606ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2720ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2833ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=2940ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3046ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3167ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3262ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3372ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4250 temp=0.4250 [SECOND SIDE] threshold=0.4250 time=3481ms/200ms depth_buy=0.4037 (5.0% discount) reversal_check=0.4250+0.020=0.4450 < 0.4250? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=3815ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=3920ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=4030ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=4138ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=4244ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=4354ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4150 temp=0.4150 [SECOND SIDE] threshold=0.4150 time=4466ms/200ms depth_buy=0.3942 (5.0% discount) reversal_check=0.4150+0.020=0.4350 < 0.4150? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4050 temp=0.4050 [SECOND SIDE] threshold=0.4050 time=4693ms/200ms depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4050? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking YES: price=0.4050 temp=0.4050 [SECOND SIDE] threshold=0.4050 time=4804ms/200ms depth_buy=0.3847 (5.0% discount) reversal_check=0.4050+0.020=0.4250 < 0.4050? NO ❌ max_acceptable=0.4400 (sumAvg=0.5400) ✅ ⏱️TIME-BASED BUY
+[SUCCESS] 🎯 SECOND BUY (Time-based): YES @ 0.4050 | Price <= threshold 0.4050 for 4804ms (>= 200ms) attempt_count=4/4
+[INFO] ⚡ Copytrade BUY market=btc slug=btc-updown-15m-1777390200 leg=YES size=5 conditionId=0x95cc9ab72083433822b51923c59ac31e46f75c4b116e4a292ce7a0784ab4a5d9 (limit=0.43, mid=0.405) type=GTC (aggressive pricing for speed)
+[INFO] ⚡ Order placed in 394ms
+[SUCCESS] ⚡ Order 0xc1cee3fa2204065d78... placed and tracking async (total: 394ms) - continuing immediately
+[INFO] ⏱️ Execution timing: buy=395ms total=395ms success=false
+[INFO] 🔄 Switched tracking: YES → NO
+[SUCCESS] 🎯 DYNAMIC THRESHOLD: 0.6100 | Will buy NO when <= 0.6000
+[WARNING] ⚠️ Safety check: Last buy was NO, enforcing alternation - switching to YES
+[INFO] Added 5 tokens to holdings: 0x95cc9ab72083433822b51923c59ac31e46f75c4b116e4a292ce7a0784ab4a5d9 -> 64977259499393707573173024150089620610086111781422087480576947919114723200597
+[SUCCESS] ✅ Async order MATCHED: 0xc1cee3fa2204065d78... leg=YES filled=5 spent=2.150000 sumAvg=0.9700
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=125ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=221ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=331ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=422ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=534ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=643ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=754ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=864ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=967ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=1078ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6050 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=1187ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6100 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6100? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6150 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6150? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6250 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6250? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6400 temp=0.6050 [SECOND SIDE] threshold=0.6050 time=0ms/200ms depth_buy=0.5747 (5.0% discount) reversal_check=0.6050+0.020=0.6250 < 0.6400? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.6400 (reversed from 0.6050, movement=+0.0350, threshold=0.6250) attempt_count=2/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping NO buy at 0.6900 - would make sumAvg 1.0450 > 0.98 (unprofitable). Current: avgYES=0.4300 avgNO=0.5400
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=85ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=188ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=296ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=413ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=521ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=629ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=738ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=845ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=989ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1068ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1175ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1283ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1404ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1501ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6450 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=1611ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6450? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ ⏱️TIME-BASED BUY (cooldown)
+[DEBUG] Tracking NO: price=0.6600 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6600? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6550 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6550? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6650 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6650? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[DEBUG] Tracking NO: price=0.6850 temp=0.6450 [SECOND SIDE] threshold=0.6450 time=0ms/200ms depth_buy=0.6128 (5.0% discount) reversal_check=0.6450+0.020=0.6650 < 0.6850? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.6850 (reversed from 0.6450, movement=+0.0400, threshold=0.6650) attempt_count=3/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping NO buy at 0.7300 - would make sumAvg 1.0650 > 0.98 (unprofitable). Current: avgYES=0.4300 avgNO=0.5400
+[WARNING] ⚠️ Safety check: Last buy was YES, enforcing alternation - switching to NO
+[DEBUG] Tracking NO: price=0.6850 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6850? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.6950 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.6950? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7050 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7050? NO ❌ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7150 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7150? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7150 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7150? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7150 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7150? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌ (cooldown)
+[DEBUG] Tracking NO: price=0.7150 temp=0.6850 [SECOND SIDE] threshold=0.6850 time=0ms/200ms depth_buy=0.6508 (5.0% discount) reversal_check=0.6850+0.020=0.7050 < 0.7150? YES ✅ max_acceptable=0.5500 (sumAvg=0.9700) ❌
+[SUCCESS] 🎯 SECOND BUY: NO @ 0.7150 (reversed from 0.6850, movement=+0.0300, threshold=0.7050) attempt_count=4/4
+[WARNING] Copytrade: market=btc slug=btc-updown-15m-1777390200 skipping NO buy at 0.7600 - would make sumAvg 1.0800 > 0.98 (unprofitable). Current: avgYES=0.4300 avgNO=0.5400
+[INFO] ✅ Hedge complete: market=btc slug=btc-updown-15m-1777390200 attempts=4Y/4N successful=1Y/1N avgYES=0.4300 avgNO=0.5400 sumAvg=0.9700
+[INFO] 🔄 Hedge complete, resetting for new hedge (will use ENV threshold=0.499)
+
+===== LOG END 2026-04-28T15:31:48.670Z pid=20244 =====

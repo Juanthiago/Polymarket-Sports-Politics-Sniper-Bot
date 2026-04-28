@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/3e232356-f15a-42d6-969c-5a98aa922990
 
 - **Runtime**: Node.js, TypeScript (strict)
 - **Chain**: Polygon (EVM-compatible)
-- **Execution**: Polymarket CLOB via `@polymarket/clob-client`
+- **Execution**: Polymarket CLOB V2 via `@polymarket/clob-client-v2`
 - **Market metadata**: Polymarket Gamma API (slugs, token IDs, condition IDs)
 - **On-chain**: Ethers.js v6
 - **Logging**: Structured logger with optional file output
@@ -241,13 +241,13 @@ Polymarket-Arbitrage-Bot/
 
 ### CLOB client
 
-Orders are built and posted through `@polymarket/clob-client`:
+Orders are built and posted through `@polymarket/clob-client-v2` (CLOB V2 production: `https://clob.polymarket.com`):
 
 ```typescript
-import { ClobClient, OrderType, Side } from "@polymarket/clob-client";
+import { ClobClient, OrderType, Side } from "@polymarket/clob-client-v2";
 
 const client = await getClobClient();
-const response = await this.client.createAndPostOrder(
+const response = await client.createAndPostOrder(
   userOrder,
   { tickSize, negRisk },
   OrderType.GTC

@@ -1,4 +1,4 @@
-import { Side, OrderType, UserMarketOrder, CreateOrderOptions } from "@polymarket/clob-client";
+import { Side, OrderType, type UserMarketOrderV2, CreateOrderOptions } from "@polymarket/clob-client-v2";
 import type { TradePayload } from "../utils/types";
 
 /**
@@ -36,11 +36,6 @@ export interface CopyTradeOptions {
      * Whether to use negRisk exchange (default: false)
      */
     negRisk?: boolean;
-
-    /**
-     * Fee rate in basis points (optional)
-     */
-    feeRateBps?: number;
 }
 
 /**
@@ -70,7 +65,7 @@ export interface CopyTradeResult {
     /**
      * The market order that was created
      */
-    marketOrder?: UserMarketOrder;
+    marketOrder?: UserMarketOrderV2;
 }
 
 export interface IEvent {   

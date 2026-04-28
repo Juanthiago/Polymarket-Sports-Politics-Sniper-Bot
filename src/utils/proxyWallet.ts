@@ -1,4 +1,4 @@
-import { Chain, getContractConfig } from "@polymarket/clob-client";
+import { Chain, getContractConfig } from "@polymarket/clob-client-v2";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { Contract } from "@ethersproject/contracts";
 import { config } from "../config";

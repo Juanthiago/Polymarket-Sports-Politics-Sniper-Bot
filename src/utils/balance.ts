@@ -1,4 +1,4 @@
-import { ClobClient, AssetType, type OpenOrder } from "@polymarket/clob-client";
+import { ClobClient, AssetType, type OpenOrder } from "@polymarket/clob-client-v2";
 
 /**
  * Calculate available balance for placing orders

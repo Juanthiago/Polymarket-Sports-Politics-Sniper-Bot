@@ -1,4 +1,3 @@
-import { createCredential } from "./security/createCredential";
 import { approveUSDCAllowance, updateClobBalanceAllowance } from "./security/allowance";
 import { getClobClient } from "./providers/clobclient";
 import { waitForMinimumUsdcBalance } from "./utils/balance";
@@ -45,13 +44,11 @@ async function waitMs(ms: number, label: string): Promise<void> {
 async function main() {
     logger.info("Starting the bot...");
 
-    // Create credentials if they don't exist
-    const credential = await createCredential();
-    if (credential) {
-        console.log("Credentials ready");
-    }
-
-    const clobClient = await getClobClient();
+    const clobClient = await getClobClient().catch((e) => {
+        console.error("Failed to load or create CLOB API credentials:", e);
+        process.exit(1);
+    });
+    console.log("Credentials ready");
 
     // Approve USDC allowances to Polymarket contracts
     if (clobClient) {

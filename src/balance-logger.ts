@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 import { config } from "./config";
-import { Wallet } from "ethers";
+import { Wallet } from "@ethersproject/wallet";
 import { getClobClient } from "./providers/clobclient";
-import { AssetType } from "@polymarket/clob-client";
+import { AssetType } from "@polymarket/clob-client-v2";
 import * as fs from "fs";
 import * as path from "path";
 
 const BALANCE_LOG_FILE = "logs/balance.log";
 
 /**
- * Get USDC balance in decimal format (not wei)
+ * Get CLOB collateral balance (pUSD, 6 decimals) as a decimal number.
  */
 async function getUsdcBalance(walletAddress: string): Promise<number> {
     try {
@@ -22,9 +22,9 @@ async function getUsdcBalance(walletAddress: string): Promise<number> {
             asset_type: AssetType.COLLATERAL,
         });
         const balance = parseFloat(balanceResponse.balance || "0");
-        return balance / 10 ** 6; // Convert from wei to USDC
+        return balance / 10 ** 6;
     } catch (error) {
-        console.log(`[ERROR] Failed to get USDC balance: ${error instanceof Error ? error.message : String(error)}`);
+        console.log(`[ERROR] Failed to get collateral balance: ${error instanceof Error ? error.message : String(error)}`);
         return 0;
     }
 }

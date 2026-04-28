@@ -2,7 +2,7 @@ import fs from "fs";
 import { promisify } from "util";
 import path from "path";
 import { inspect } from "util";
-import { ClobClient, OrderType, Side, type CreateOrderOptions, type UserOrder } from "@polymarket/clob-client";
+import { ClobClient, OrderType, Side, type CreateOrderOptions, type UserOrderV2 } from "@polymarket/clob-client-v2";
 import { addHoldings } from "../utils/holdings";
 import { config } from "../config";
 
@@ -422,7 +422,7 @@ export class CopytradeArbBot {
     private async checkBalanceAndDrawdown(): Promise<boolean> {
         try {
             const { getAvailableBalance } = await import("../utils/balance");
-            const { AssetType } = await import("@polymarket/clob-client");
+            const { AssetType } = await import("@polymarket/clob-client-v2");
 
             const available = await getAvailableBalance(this.client, AssetType.COLLATERAL);
             const availableUsdc = available / 10 ** 6;
@@ -1135,12 +1135,14 @@ export class CopytradeArbBot {
         // Prevent buy spam: if we recently failed a buy at this temp price, wait for price to drop again
         const recentlyFailed = tracking.lastFailedBuyAttempt > 0 && (now - tracking.lastFailedBuyAttempt) < 5000; // 5 second cooldown
 
-        console.log(`[DEBUG] Tracking ${currentToken}: price=${currentPrice.toFixed(4)} temp=${tracking.tempPrice.toFixed(4)} ${isSecondSide ? `[SECOND SIDE] threshold=${tracking.tempPrice.toFixed(4)} time=${timeBelowThreshold}ms/${this.cfg.secondSideTimeThresholdMs}ms ` : ""}depth_buy=${depthBuyThreshold.toFixed(4)} (${(this.cfg.depthBuyDiscountPercent * 100).toFixed(1)}% discount) ` +
-            `reversal_check=${tracking.tempPrice.toFixed(4)}+${this.cfg.reversalDelta.toFixed(3)}=${reversalThreshold.toFixed(4)} ` +
-            `< ${currentPrice.toFixed(4)}? ${isReversal ? "YES ✅" : "NO ❌"} ` +
-            `max_acceptable=${maxAcceptablePrice.toFixed(4)} (sumAvg=${(currentAvgYES + currentAvgNO).toFixed(4)}) ` +
-            `${priceAcceptable ? "✅" : "❌"}${isTimeBasedBuy ? " ⏱️TIME-BASED BUY" : ""}${isDeepDiscount ? " 💰DEEP DISCOUNT" : ""}${recentlyFailed ? " (cooldown)" : ""}`
-        );
+        if (config.debug) {
+            console.log(`[DEBUG] Tracking ${currentToken}: price=${currentPrice.toFixed(4)} temp=${tracking.tempPrice.toFixed(4)} ${isSecondSide ? `[SECOND SIDE] threshold=${tracking.tempPrice.toFixed(4)} time=${timeBelowThreshold}ms/${this.cfg.secondSideTimeThresholdMs}ms ` : ""}depth_buy=${depthBuyThreshold.toFixed(4)} (${(this.cfg.depthBuyDiscountPercent * 100).toFixed(1)}% discount) ` +
+                `reversal_check=${tracking.tempPrice.toFixed(4)}+${this.cfg.reversalDelta.toFixed(3)}=${reversalThreshold.toFixed(4)} ` +
+                `< ${currentPrice.toFixed(4)}? ${isReversal ? "YES ✅" : "NO ❌"} ` +
+                `max_acceptable=${maxAcceptablePrice.toFixed(4)} (sumAvg=${(currentAvgYES + currentAvgNO).toFixed(4)}) ` +
+                `${priceAcceptable ? "✅" : "❌"}${isTimeBasedBuy ? " ⏱️TIME-BASED BUY" : ""}${isDeepDiscount ? " 💰DEEP DISCOUNT" : ""}${recentlyFailed ? " (cooldown)" : ""}`
+            );
+        }
 
         // TIME-BASED BUY FOR SECOND SIDE: Buy when price has been in range for required duration
         if (isTimeBasedBuy && !recentlyFailed) {
@@ -1627,7 +1629,7 @@ export class CopytradeArbBot {
             return null;
         }
 
-        const userOrder: UserOrder = {
+        const userOrder: UserOrderV2 = {
             tokenID,
             side: Side.BUY,
             price: limitPrice,
@@ -1635,7 +1637,7 @@ export class CopytradeArbBot {
         };
 
         // SPEED OPTIMIZATION: For limit orders, we use GTC with aggressive pricing
-        // Note: FAK is for market orders (UserMarketOrder), not limit orders (UserOrder)
+        // Note: FAK is for market orders (UserMarketOrderV2), not limit orders (UserOrderV2)
         // We achieve speed through: aggressive price buffer + fire-and-forget
         const orderType = OrderType.GTC;
         const orderTypeStr = this.cfg.useFakOrders ? "GTC (aggressive pricing for speed)" : "GTC (Good-Till-Cancel)";
@@ -1709,7 +1711,9 @@ export class CopytradeArbBot {
                 if (order && order.status) {
                     // If order is MATCHED, we're done!
                     if (order.status === "MATCHED") {
-                        console.log(`[DEBUG] ⚡ Order MATCHED on attempt ${orderCheckAttempts + 1}`);
+                        if (config.debug) {
+                            console.log(`[DEBUG] ⚡ Order MATCHED on attempt ${orderCheckAttempts + 1}`);
+                        }
                         break;
                     }
 
@@ -1751,7 +1755,9 @@ export class CopytradeArbBot {
             return null;
         }
 
-        console.log(`[DEBUG] Final order status: ${order.status} for ${leg} orderID=${orderID}`);
+        if (config.debug) {
+            console.log(`[DEBUG] Final order status: ${order.status} for ${leg} orderID=${orderID}`);
+        }
 
         if (order.status !== "MATCHED") {
             console.log(`[ERROR] Copytrade BUY failed market=${market} slug=${slug} leg=${leg} conditionId=${conditionId} orderID=${orderID} status=${order.status} (order may still be on order book)`);

@@ -1,10 +1,10 @@
-import { resolve } from "path";
 import { readFileSync, existsSync } from "fs";
-import { Chain, ClobClient } from "@polymarket/clob-client";
-import type { ApiKeyCreds } from "@polymarket/clob-client";
+import { Chain, ClobClient } from "@polymarket/clob-client-v2";
+import type { ApiKeyCreds } from "@polymarket/clob-client-v2";
 import { Wallet } from "@ethersproject/wallet";
 import { config } from "../config";
 import { resolveClobOrderAuth } from "./clobOrderAuth";
+import { ensureCredentialOnDisk, getCredentialPath } from "../security/createCredential";
 
 // Cache for ClobClient instance to avoid repeated initialization
 let cachedClient: ClobClient | null = null;
@@ -20,14 +20,21 @@ let cachedConfig: {
  * Prevents creating multiple ClobClient instances
  */
 export async function getClobClient(): Promise<ClobClient> {
-    // Load credentials
-    const credentialPath = resolve(process.cwd(), "src/data/credential.json");
-    
-    if (!existsSync(credentialPath)) {
-        throw new Error("Credential file not found. Run createCredential() first.");
-    }
+    const credentialPath = getCredentialPath();
 
-    const creds: ApiKeyCreds = JSON.parse(readFileSync(credentialPath, "utf-8"));
+    let creds: ApiKeyCreds;
+    try {
+        if (!existsSync(credentialPath)) {
+            await ensureCredentialOnDisk();
+        }
+        creds = JSON.parse(readFileSync(credentialPath, "utf-8"));
+        if (!creds?.key || !creds?.secret || !creds?.passphrase) {
+            throw new Error("invalid credential file");
+        }
+    } catch {
+        await ensureCredentialOnDisk({ force: true });
+        creds = JSON.parse(readFileSync(credentialPath, "utf-8"));
+    }
     
     const chainId = (config.chainId || Chain.POLYGON) as Chain;
     const host = config.clobApiUrl;
@@ -59,15 +66,16 @@ export async function getClobClient(): Promise<ClobClient> {
         passphrase: creds.passphrase,
     };
 
-    // Create and cache client
-    cachedClient = new ClobClient(
+    // Create and cache client (CLOB V2 — options-object constructor)
+    cachedClient = new ClobClient({
         host,
-        chainId,
-        wallet,
-        apiKeyCreds,
-        orderAuth.signatureType,
-        orderAuth.funderAddress
-    );
+        chain: chainId,
+        signer: wallet,
+        creds: apiKeyCreds,
+        signatureType: orderAuth.signatureType,
+        funderAddress: orderAuth.funderAddress,
+        useServerTime: true,
+    });
     cachedConfig = {
         chainId,
         host,
